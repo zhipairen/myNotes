@@ -1,0 +1,5 @@
+fetch不同于ajax的请求方式
+
+文章链接：https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
+
+          https://www.w3ctech.com/topic/854

@@ -1,0 +1,15 @@
+class类构造函数继承:  super（）等于 父类.prototype.constructor.call(this) (需要先引入父类实例this,再加属性）
+		      super(对象）等于 父类.prototype  或者用在静态方法中，这时 super作为对象指向父类
+
+类的prototype属性和_proto_属性: (1) 子类的_proto_属性，表示构造函数的继承，总是指向父类。B._proto_ === A
+				(2)子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性。
+                                 B.prototype.__proto__ === A.prototype // true
+
+Object.setPrototypeOf(B,A);
+Object.setPrototypeOf = function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+}
+add(2,3,4,5) es6: add(...args){  args = [2, 3, 4, 5]}
+
+args = [2, 3, 4, 5], add(...args) 等效于 add(2, 3 , 4, 5)

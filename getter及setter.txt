@@ -1,0 +1,30 @@
+文章：http://blog.csdn.net/wkyseo/article/details/53996012
+
+Object.defineProperty(obj,属性名，{//属性特性
+
+	set: function(val){
+		this.属性=val;//逻辑处理
+},
+	get:function(){
+		return this.属性
+},
+	writable: true,
+
+	configurable: true,
+
+	emumerable:true
+
+}）
+
+如何实现数据的双向绑定：
+
+1、需要方法识别UI元素被绑定的相应属性，
+
+2、需要监视属性和UI元素的变化
+
+3、需要将所有变化传播到绑定的对象和元素
+
+方法一：利用发布订阅模式，订阅数据变更
+
+方法二：数据劫持  * vue响应式数据
+

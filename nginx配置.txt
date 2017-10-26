@@ -1,0 +1,12 @@
+server {
+	listen 80;
+
+	server_name test.careerfrog.com.cn; # 域名
+	location / {
+		proxy_pass http://127.0.0.1:端口号;
+	}
+	location /api/files {
+		# /api/files 要跨域的API
+		proxy_pass http://127.0.0.1:要跨域到的地方的端口号;
+	}
+}

@@ -1,0 +1,2 @@
+1、可离线查看文档的网站：http://devdocs.io/offline
+2、npm install -g npm 升级npm

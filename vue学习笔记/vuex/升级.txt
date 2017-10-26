@@ -1,0 +1,15 @@
+actions: 调用异步api和分发多重 mutations
+绝对不可以在vue组件中对 vuex中的状态数据进行操作，否则会报错；如果需要对vuex状态进行修改，可在action或getters中完成
+
+2、表单处理 v-model(双向绑定的计算属性），两种处理方式：https://vuex.vuejs.org/zh-cn/forms.html
+（1）、给<input>中绑定value,然后侦听input或change事件，在事件回调中调用action
+ (2)、使用带有setter的双向绑定计算属性：computed:{
+			message:{
+	get(){
+return this.$store.state.obj.message
+}
+   set(value){
+		this.$store.commit('updateMessage',value)
+}
+}
+}

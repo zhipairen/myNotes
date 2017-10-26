@@ -1,0 +1,46 @@
+知乎：https://www.zhihu.com/question/46630687
+
+1、 修改build生成的静态文件路径：config/index.js中assetsPublicPath默认为 '/',打包的资源文件都以/开头的绝对路径，指向http服务器的根路径，
+如果修改为相对路径则需要修改为 './'就行
+
+2、 使用nginx做反向代理服务器，配置文件参考：
+
+server {
+    listen 80;
+    server_name localhost:80;
+    index  index.html;
+    root /wwwroot/;
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+
+vue-cli中webpack配置详解:https://segmentfault.com/a/1190000008644830
+
+3、生产环境下资源url路径问题：webpack配置文件中publicPath属性更新url
+
+4、沙博客:http://shaqihe.github.io/
+
+location/ {
+try_files$uri/index.html =404;
+ }
+location^~/api {
+proxy_passhttp://127.0.0.1:8080;
+ }
+
+5、server {
+	listen 80;
+
+	server_name test.careerfrog.com.cn; # 域名
+	location / {
+		proxy_pass http://127.0.0.1:端口号;
+	}
+	location /api/files {
+		# /api/files 要跨域的API
+		proxy_pass http://127.0.0.1:要跨域到的地方的端口号;
+	}
+}
+
+6、https://github.com/bhnddowinf/vuejs2-learn/blob/master/my-project/config/index.js
+
+7、https://www.mmxiaowu.com/article/5848227ed4352863efb55463

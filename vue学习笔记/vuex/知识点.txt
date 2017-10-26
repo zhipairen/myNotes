@@ -1,0 +1,1 @@
+1、Vue组件获得vuex状态：利用计算属性 中返回某个状态=> computed:{ count（){return store.state.count}}

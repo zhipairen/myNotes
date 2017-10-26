@@ -1,0 +1,31 @@
+1、块级作用域：let 取代var ,const 在全局环境声明全局常量 eg: const [a,b,c] = [1, 2, 3]；
+
+2、静态字符串一律使用 单引号或反引号，动态字符串使用 反引号 ``,eg:const a = `foo${c}bar`;
+
+3、多多使用解构赋值：
+
+使用数组成员对变量赋值时，优先使用解构赋值；const arr = [1,2,3,4]; const [first, second] = arr;
+函数参数如果是对象的成员，优先使用解构赋值；function get({firstname, lastname}){...}
+如果函数返回多个值，function set(input){   return {left, right, top }; }
+
+4、对象尽量静态化，一旦定义，不得随意添加新属性，如果要添加，使用 Object.assign 方法；
+ const a = {};
+Object.assign(a,{ x: 3 }）;或先定义好： const a = { x: null }；a.x = 3;
+
+5、属性可以使用 表达式 定义；const obj = { id: 4, [getKey('enabled')]: true, addValue(value) { return this.value}};
+ 使用Array.from 方法将 类似数组的对象转化为 数组
+
+6、简单的单行的不会复用的函数表达式尽量用 箭头函数绑定，且绑定了this，箭头函数取代 Function.prototype.bind ; eg: [1, 2, 4, 5].map( ( x ) => x * x );等同于 function (x){return x * x }
+
+7、函数参数 arguments变量可以使用 rest运算符 （...）代替，args = Array.prototype.slice.call(arguments);等同于rest运算符 ...args
+ function aa(...args){ return args.join('');}
+使用默认值语法设置函数参数默认值，布尔值不可以直接作为参数，需要 function aa(a = 1, {option = false } = {}){......}
+
+8、Map结构：但只需要 key:value 的数据结构时，优先Map结构 ：let map = new Map(arr); map.keys()、map.values() 、map.entries()
+
+9、总是用Class，取代需要prototype的操作。因为Class的写法更简洁，更易于理解。类的方法都定义在 prototype对象上，prototype对象的
+ constructor属性直接指向“类”的本身；constructor中的属性是实例的属性；
+类的属性名可以采用表达式：[methodName](){...//},不存在变量提升
+类的私有方法和私有属性利用 Symbol值得唯一性达到效果
+super()只能用在子类的构造函数之中；super作为对象时，指向父类的原型对象 A.prototype
+ES6是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。

@@ -1,0 +1,11 @@
+文档：http://www.cnblogs.com/DSharp/p/3789545.html
+面向对象：http://www.cnblogs.com/DSharp/archive/2005/01/28/98632.html
+
+尾递归： function fn(n, total){
+ if(n ===1) return total;
+	return fn(n-1, n* total)
+}// 阶乘
+ function fibonacci(n, ac1= 1,ac2 =1){
+ if(n<=1){return ac2);
+ return fibonacci(n-1, ac2, ac1+ac2);
+}

@@ -1,0 +1,44 @@
+var getJSON =function(url){
+	var promise=new Promise(function(resolve, reject){
+
+	var client=new XMLHttpRequest();
+		client.open('GET',url);
+		client.onreadystatechange= handler;
+		client.responsetype="json";
+		client.setRequestHeader("Accept","application/json");
+		client.send();
+	function handler(){
+
+	if(this.readyState !==4){
+	return;
+}
+	if(this.status===200){
+	resolve(this.response);
+}else{
+	reject(new Error(this.statusText));
+}
+
+};
+});
+	
+return promise;
+};
+如果调用resolve函数和reject函数时带有参数，那么参数会被传递给回调函数；resolve函数的参数除了正常值以外，可能是另一个Promise实例；
+
+promise.then(成功回调).catch(error回调);
+
+按顺序完成异步操作（并发发出远程请求）：
+
+    async function logInOrder(urls){
+//并发读取远程url
+ const textPromises = urls.map(async url => {
+	const response = await fetch(url);
+return response.text();
+
+});
+//按次序输出
+	for(const textPromise of textPromises){
+	console.log(await textPromise);
+}
+
+}

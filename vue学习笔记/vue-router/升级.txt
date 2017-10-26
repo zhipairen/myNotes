@@ -1,0 +1,19 @@
+1、过渡动效
+（1）<transition>
+  <router-view></router-view>
+</transition>
+（2)单个路由的过渡：组件用 transition包裹就行， <transition name="fade"> <div class="bar">...</div></transition>
+ (3)基于路由的动态过渡：
+<!-- 使用动态的 transition name -->
+<transition :name="transitionName">
+  <router-view></router-view>
+</transition>
+// 接着在父组件内
+// watch $route 决定使用哪种过渡
+watch: {
+  '$route' (to, from) {
+    const toDepth = to.path.split('/').length
+    const fromDepth = from.path.split('/').length
+    this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+  }
+}

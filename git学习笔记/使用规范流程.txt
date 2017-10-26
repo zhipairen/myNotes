@@ -1,0 +1,51 @@
+http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
+
+
+
+1、创建分支：
+  
+git checkout 
+git pull
+git checkout -b myBarse
+
+2、提交commit
+
+git status //分支细节
+
+git add .//保存所有变动
+
+git commit
+
+3、编写提交信息
+
+4、与主支同步
+
+ git fetch 远程分支名
+
+5、合并commit
+
+git rebase -i 分支名字  或 merge
+
+
+rebase 与merge的区别？
+
+6、推送远程仓库
+
+git push --force 远程主机 本地分支名
+
+7、发出Pull Request
+
+工作流程：https://my.oschina.net/nyankosama/blog/270546  （超详细）
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+
+
+1、dev开发完成切换到alpha（自定义测试分支）分支
+2、把dev分支merge到alpha分支（把dev分支合并到测试分支）
+3、再在alpha用npm run deploy-test部署到alpha的线上环境（跑起来测试分支）
+4、测试完成以后再把alpha分支merge到master分支（合并到发布的分支）
+5、部署生产环境master分支代码（部署代码上线）

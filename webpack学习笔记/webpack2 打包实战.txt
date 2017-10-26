@@ -1,0 +1,22 @@
+https://zhuanlan.zhihu.com/p/27046322
+
+//  package.json中的scripts对象, 可以用来写一些脚本命令,
+//  命令不需要前缀目录 ./node_modules/.bin/, npm会自动寻找该目录下的命令.我们可以执行
+// chunkFilename 可以加上[chunkhash]防止浏览器读取错误缓存
+//.gitignore排除提交到git上的文件
+
+DefinePlugin插件的原理很简单, 如果我们在代码中写:
+console.log(DEBUG)
+它会做类似这样的处理:
+'console.log(DEBUG)'.replace('DEBUG', true)
+最后生成:
+console.log(true)
+
+
+优化babel编译后的代码性能:(有兼容性风险，不建议设置)
+babel编译后的代码一般会造成性能损失, babel提供了一个loose选项, 使编译后的代码不需要完全遵循ES6规定, 简化编译后的代码, 提高代码执行效率:
+
+使用webpack 2自带的ES6模块处理功能:
+我们目前的配置, babel会把ES6模块定义转为CommonJS定义, 但webpack自己可以处理import和export, 而且webpack处理import时会做代码优化, 把没用到的部分代码删除掉. 因此我们通过babel提供的modules: false选项把ES6模块转为CommonJS模块的功能给关闭掉.
+
+编译前清空dist目录，跨平台的需求下，利用rimraf

@@ -1,0 +1,3 @@
+typescript handbool:https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tutorials/ASP.NET%20Core.html
+
+快速上手:https://www.tslang.cn/docs/tutorial.html

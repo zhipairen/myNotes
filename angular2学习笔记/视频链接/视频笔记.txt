@@ -1,0 +1,39 @@
+安装angular-CLI:
+
+npm install -g angular-cli
+
+ng -version
+
+ng help
+
+ng new 项目名
+
+ng install(安装依赖，可拷贝使用）
+
+ng serve
+
+ng serve --prod --aot(轻量级启动）
+
+ng build --prod --aot(编译）
+
+注意：node-gyp包可能需要安装 Visual Studio
+
+联网方式：npm config list(查看配置列表）=> npm config set proxy="代理"（设置）=>npm config delete proxy
+
+ng g c User(简化式命令行创建组件）
+
+学习：https://segmentfault.com/a/1190000008623106
+
+组件树生成器：https://github.com/manekinekko/angular2-dependencies-graph
+
+NgModule:https://angular.cn/doce/ts/latest/cookbook/ngmodule-faq.html(原因解释）
+
+路由（Router）:静态路由{path:'',component: HomeComponent} ；异步路由：{path:'',loadChildren:''}
+
+DI(依赖注入）：每一个HTML标签都有一个注射器实例，注射是通过 constructor进行的，@Injectable是@Component的子类
+
+注射器（Injector）也是一个树型结构；原理：https://my.oschina.net/mumu/blog/775695
+
+数据绑定 DataBinding:
+http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html
+http://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/

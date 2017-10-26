@@ -1,0 +1,13 @@
+原型对象：构造函数下的prototype属性，公共方法属性，原型对象下有 constructor(构造属性);对象的-proto-指向原型对象；
+
+es6:类 class;
+
+ajax跨域：jsonp返回回调函数，h5采用CORS:服务器设置正确的 Access-Control-Allow-Origin:*；
+对于PUT、DELETE以及其他类型如application/json的POST请求，在发送AJAX请求之前，浏览器会先发送一个OPTIONS请求（称为preflighted请求）到这个URL上，询问目标服务器是否接受
+
+HTTP访问控制（CORS跨域资源共享）:https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS#（重要且详细）
+
+预请求options:“预请求”要求必须先发送一个 OPTIONS 方法请求给目的站点，来查明这个跨站请求对于目的站点是不是安全的可接受的。这样做，是因为跨站请求可能会对目的站点的数据产生影响。
+Access-Control-Request-Method: POST及Access-Control-Request-Headers: X-PINGOTHER，两个请求头一起被发送
+
+闭包：对作用域的引用就是闭包。实现闭包现象：先利用一个还没被销毁的变量将函数的引用记住，即记住作用域，然后访问，就形成闭包现象。

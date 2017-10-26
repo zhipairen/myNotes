@@ -1,0 +1,66 @@
+1、let 声明式 块级作用域 do表达式 const声明只读常量必须同时赋值；注：for(let i;....){let i}存在两个作用域，‘暂时性死区':let、const变量必须先声明后使用
+* 两者都不可重复声明
+2、Object.freeze方法，冻结对象不可追加属性；const a=[];a.push('hello')；//可执行 a=['Dave'];//另一数组赋值给a会报错
+3、彻底冻结对象的函数： var constantize= (obj) =>{ Object.freeze(obj);
+				Object.keys(obj).forEach((key,value) => {
+					if( typeof obj[key] === 'object'){
+						costantize( obj[key]);} });};
+4、全局变量与顶层对象（window）的属性脱钩；globel对象（顶层对象）(因各种实现里面是不统一的），在所有环境拿到global,
+	（1）import shim from 'system.global/shim'; shim();(保证global都是存在的）；
+	（2）import getGlobal from 'system.global';const global = getGlobal();//将顶层对象放入变量global
+5、变量的解构赋值：左边数组[a,b = '2',c]=['1',undefined,'3'] 右边赋值 可不完全相等，但格式应一样，且右边应为数组；严格判断===是否为undefined，等于的采用默认值
+* 事实上，只要某种数据结构具有 Iterator 接口，都可以采用数组形式的解构赋值。
+function f(){console.log('aa')} let [x=f()] = [1],默认值为表达式，惰性求值，x能取到值，函数f不会执行；
+默认值可以引用解构赋值的其他变量，但该变量必须已经声明。
+let [x = 1, y = x] = [];     // x=1; y=1
+let [x = 1, y = x] = [2];    // x=2; y=2
+let [x = 1, y = x] = [1, 2]; // x=1; y=2
+let [x = y, y = 1] = [];     // ReferenceError
+解构赋值：左边右边格式对应映射
+对象的解构赋值：let { foo: foo, bar: bar } = { foo: "aaa", bar: "bbb" };（内部机制：先找到同名属性，然后再赋给对应的变量，被赋值的是后者，前者是模式，不会被赋值）
+复杂情况：let {loc:{start:{line}} }=obj;//注：只有loc是变量被赋值
+ let foo;
+({foo}={foo:1});// *不加（）会报错，不加解析器理解为代码块，而不是赋值语句；
+ 嵌套赋值：
+let obj={};let arr=[];
+({ foo:obj.prop,bar:arr[0]=1 } = {foo:123,bar:true});obj//{prop:123} arr//[true] 默认值为[1]
+
+对数组进行对象属性解构：let arr=[1,2,3];let {0:first,[arr.length -1]:last}=arr;last//3
+
+解构规则：模式不能使用（）；只要等号右边的值不是对象就先转为对象，数值和布尔值的包装对象有 toString 属性，undefined 和 null 无法转化为对象，let { prop:y} =null;//TypeError
+
+6、参数序列化 ... rest参数；*箭头函数体内的this对象是定义时所在的对象，而不是运行时所在的对象（this固定化），箭头函数本身没有this，引用的是外层代码块的this；
+7、var obj={birth,say(){}}; Object.assign(目标对象,源对象)  浅拷贝
+Object.setPrototypeOf(obj,prototype):设置原型对象 Object.getPrototypeOf()；Object.keys()：返回自身可遍历属性组成的数组  Object.create()
+'null传导运算符’: ?.
+
+8、一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）,等初始化结束，该作用域消失，不设置参数默认值，不会出现。(let y = x)
+
+参数默认值和解构赋值的默认值得结合使用   {x = 1,y = 2}={ }
+
+var x = 1;
+function foo(x, y = function() { x = 2; }) {
+  var x = 3;
+  y();
+  console.log(x);
+}
+
+foo() // 3
+x // 1
+
+var x = 1;
+function foo(x, y = function() { x = 2; }) {
+  x = 3;
+  y();
+  console.log(x);
+}
+
+foo() // 2
+x // 1
+两个作用域，一个参数context作用域一个函数内部作用域
+
+使用扩展运算符 转化为真正的数组 ...  Array.from
+
+由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。var getTempItem = id => ({ id: id, name: "Temp" });
+
+...  合并 拷贝

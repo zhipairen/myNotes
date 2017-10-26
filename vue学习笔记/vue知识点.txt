@@ -1,0 +1,228 @@
+1、v-bind:class="{对象}或数组或单个表达式都行";//类存在多个的原因
+  可与普通的class属性共存
+
+（1）:class="{active: isActive,'text-danger':hasError}"
+ data:{ isActive :true,hasError:false}
+或 ：class="classOBj"
+data:{
+classOBj:{
+active:true,
+'text-danger':false
+}
+}
+渲染为: class="active"
+(2)利用计算属性对class进行处理
+data:{
+ isActive:true,
+error:null
+},
+computed:{
+ classOBj:function （）{
+return {
+ active:this.isActive && !this.error,
+'text-danger':this.error && this.error.type='fatal',
+
+}
+}
+//当需要对展现哪些class类的逻辑较复杂时，利用计算属性进行处理
+
+（2）数组语法：v-bind:class="[activeClass, errorClass]"
+  data:{
+activeClass:'active',
+errorClass:'error',
+ClassMap=['red','green','black']}
+  :class="ClassMap[0]"
+
+2、绑定内联样式： v-bind:style="styleObj"
+data:{
+styleObj:{
+color:'red',
+fontSize:'12px'
+}
+}
+
+3、<div v-if="type ==="A"></div>
+	<div v-else-if="type === "B"></div>
+	<div v-else></div>
+
+4、元素添加一个唯一key属性值，决定元素是否被复用 v-if  v-for ...结合使用   v-show不支持<template>语法
+
+5、v-for="(item,index) of items" ;index为当前项的索引 或  v-for="(item,index) in items" v-for="(value,key,index) in obj"
+
+	template标签： <ul><template v-for="item of items"><li>{{item.msg}}</li><li class="divider></li></template><ul>
+
+6、Velocity库动画，css,javascript钩子函数
+
+7、向已有对象添加属性，可使用Object.assign()或 _.extend()方法，但添加的新属性不会触发更新，所以可创建一个新对象，让它包含原对象属性及新属性：
+
+	this.someObject=Object.assgin({},this.someObject,{ a:1,b；2 })
+
+8、过渡效果：
+1、利用css编写 
+
+v-enter v-enter-active v-leave v-leave-active
+
+2、利用第三方动画库  animate.css 
+enter-class
+enter-active-class
+leave-class
+leave-actice-class
+
+3、javascript 钩子  结合 Velocity.js结合使用
+
+ v-on:before-enter="beforeEnter"
+  v-on:enter="enter"
+  v-on:after-enter="afterEnter"
+  v-on:enter-cancelled="enterCancelled"
+  v-on:before-leave="beforeLeave"
+  v-on:leave="leave"
+  v-on:after-leave="afterLeave"
+  v-on:leave-cancelled="leaveCancelled"
+  beforeEnter: function (el) {
+    // ...
+  },
+  enter: function (el, done) {
+      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+      Velocity(el, { fontSize: '1em' }, { complete: done })
+    },
+ leave: function (el, done) {
+    // ...
+    done()
+  },
+当只用 JavaScript 过渡的时候， 在 enter 和 leave 中，回调函数 done 是必须的 。 否则，它们会被同步调用，过渡会立即完成。
+
+初始渲染的过渡 appear 类似 enter leave 一样的用法
+当多个相同标签的切换时，利用key 区分
+
+9、过渡模式
+transition 默认行为：进入和离开同时发生
+ mode="out-in"  （常用）或 "in-out"
+
+10、列表的进入和离开过渡：
+
+（1）不同于 <transition>， 它会以一个真实元素呈现：默认为一个 <span>。你也可以通过 tag 特性更换为其他元素。
+（2）元素 一定需要 指定唯一的 key 特性值
+
+  <transition-group name="list" tag="p">
+    <span v-for="item in items" v-bind:key="item" class="list-item">
+      {{ item }}
+    </span>
+  </transition-group>
+.list-enter-active,.list-leave-active{}
+
+列表的位移过滤：利用 v-move 特性 或 move-class属性手动设置，v-move 对于设置过渡的切换时机和过渡曲线非常有用
+
+.list-move{
+transition:transtrom .1s;
+}
+原理：使用 transforms 将元素从之前的位置平滑过渡新的位置。//
+ .list-item{
+ transition: all 1s;
+}
+
+ <transition-group
+    name="staggered-fade"
+    tag="ul"
+    v-bind:css="false"
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:leave="leave"
+  >
+    <li
+      v-for="(item, index) in computedList"
+      v-bind:key="item.msg"
+      v-bind:data-index="index"
+    >{{ item.msg }}</li>
+  </transition-group>
+
+自定义 v-bind:data-index='index' 可以用 el.dataset.index 获取到
+
+数据驱动：  enter: function (el, done) {
+      var vm = this
+      Velocity(el,
+        { opacity: 1 },
+        {
+          duration: this.fadeInDuration,
+          complete: function () {
+            done()
+            if (!vm.stop) vm.show = false
+          }
+        }
+      )
+    },
+
+11、render函数：（虚拟dom）
+ returen createElement('div',{属性},[子节点]|| string)
+用一个 Babel plugin 插件，用于在 Vue 中使用 JSX 语法的原因，它可以让我们回到于更接近模板的语法上。
+
+import AnchoredHeading from './AnchoredHeading.vue'
+new Vue({
+  el: '#demo',
+  render (h) {
+    return (
+      <AnchoredHeading level={1}>
+        <span>Hello</span> world!
+      </AnchoredHeading>
+    )
+  }
+})
+
+函数化组件：
+在这个例子中，我们标记组件为 functional， 这意味它是无状态（没有 data），无实例（没有 this 上下文）。
+一个 函数化组件 就像这样：
+
+Vue.component('my-component', {
+  functional: true,
+  // 为了弥补缺少的实例
+  // 提供第二个参数作为上下文
+  render: function (createElement, context) {
+    // ...
+  },
+  // Props 可选
+  props: {
+    // ...
+  }，
+	data (){
+}
+})
+
+组件需要的一切都是通过上下文传递，包括：
+props: 提供props 的对象
+children: VNode 子节点的数组
+slots: slots 对象
+data: 传递给组件的 data 对象
+parent: 对父组件的引用
+
+var EmptyList = { /* ... */ }
+var TableList = { /* ... */ }
+var OrderedList = { /* ... */ }
+var UnorderedList = { /* ... */ }
+Vue.component('smart-list', {
+  functional: true,
+  render: function (createElement, context) {
+    function appropriateListComponent () {
+      var items = context.props.items
+      if (items.length === 0)           return EmptyList
+      if (typeof items[0] === 'object') return TableList
+      if (context.props.isOrdered)      return OrderedList
+      return UnorderedList
+    }
+    return createElement(
+      appropriateListComponent(),
+      context.data,
+      context.children
+    )
+  },
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    isOrdered: Boolean
+  }
+})
+
+12、自定义指令  （难点）：钩子函数，钩子函数参数 el,binding{value,name,....},vnode
+
+13、混合：钩子函数两个都执行，先执行混合的钩子再调用自身的；
+若是 methods,components和 directives ，两个对象键名冲突时，取组件对象的键值对

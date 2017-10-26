@@ -1,0 +1,53 @@
+1、重定向：routers:[{path:'/a',redirect: to =>{
+	const {hash, query, params} = to;
+......
+}}]
+别名： { path: '/home', component: Home,
+      children: [
+        // absolute alias
+        { path: 'foo', component: Foo, alias: '/foo' },
+        // relative alias (alias to /home/bar-alias)
+        { path: 'bar', component: Bar, alias: 'bar-alias' },
+        // multiple aliases
+        { path: 'baz', component: Baz, alias: ['/baz', 'baz-alias'] }
+      ]
+    }//    /baz等价于 /home/baz
+
+2、路由动态的过渡：watch:{
+	'$route' (to,from){
+	 const toDepth = to.path.split('/').length
+    const fromDepth = from.path.split('/').length
+    this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+}
+
+}
+<!-- 使用动态的 transition name -->
+<transition :name="transitionName">
+  <router-view></router-view>
+</transition>
+
+
+3、滚动效果：const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    // savedPosition is only available for popstate navigations.
+    return savedPosition
+  } else {
+    const position = {}
+    // new navigation.
+    // scroll to anchor by returning the selector
+    if (to.hash) {
+      position.selector = to.hash
+    }
+    // check if any matched route config has meta that requires scrolling to top
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      // cords will be used if no selector is provided,
+      // or if the selector didn't match any element.
+      position.x = 0
+      position.y = 0
+    }
+    // if the returned position is falsy or an empty object,
+    // will retain current scroll position.
+    return position
+  }
+}
+https://github.com/vuejs/vue-router/blob/next/examples/scroll-behavior/app.js

@@ -1,0 +1,9 @@
+挖掘node系列：https://cnodejs.org/topic/5594ada26ba28efa30a604e2
+
+饿了么node大前端： https://cnodejs.org/topic/58ad76db7872ea0864fedfcc   ||  https://elemefe.github.io/node-interview/#/
+
+深入理解Node.js: https://www.gitbook.com/book/yjhjstz/deep-into-node/details
+
+一起学 Node.js: https://cnodejs.org/topic/581b0c4ebb9452c9052e7acb
+
+怎样有效地学习node.js(知乎）:https://www.zhihu.com/question/19793473

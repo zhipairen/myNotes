@@ -1,0 +1,42 @@
+官网：https://webpack.js.org/
+
+文档：http://webpack.github.io/docs/
+
+一小时包会：http://www.cnblogs.com/vajoy/p/4650467.html
+
+入门指迷：https://segmentfault.com/a/1190000002551952
+
+中文文档：http://zhaoda.net/webpack-handbook/module-system.html
+
+github:https://github.com/webpack/webpack
+
+文章：http://blog.csdn.net/u010089686/article/details/52730571
+
+阮一峰：https://github.com/ruanyf/webpack-demos#demo01-entry-file-source
+
+傻瓜式指南：https://zhuanlan.zhihu.com/p/20367175?columnSlug=FrontendMagazine
+
+
+第二部分：
+
+https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/
+Webpack 2 入门教程
+https://webpack.vuefe.cn/concepts/index/
+WebPack中文文档
+https://github.com/kraaas/webpack-tutorial-collection
+webpack 教程资源收集
+https://segmentfault.com/a/1190000005995267
+webpack 教程资源收集2
+https://segmentfault.com/a/1190000005022872
+webpack 教科书式入门教程
+http://www.mmxiaowu.com/#!/article/61
+WebPack 终极配置说明
+http://www.h-simon.com/42/
+webpack常用配置总结
+https://zhaoda.gitbooks.io/webpack/content/
+Webpack 中文指南
+
+segmentFault论坛文章：https://segmentfault.com/a/1190000005089993
+
+好文章：https://www.idaima.com/article/17008
+

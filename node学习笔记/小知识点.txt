@@ -1,0 +1,10 @@
+–save：模块名将被添加到dependencies，可以简化为参数-S。
+–save-dev: 模块名将被添加到devDependencies，可以简化为参数-D。
+
+process.nextTick方法: 可以在当前“执行栈”的尾部---下一次Event Loop(主线程读取“任务队列”)之前触发回调函数;多个process.nextTick语句总在当前“执行栈”一次执行完。
+
+setImmediate: 当前“任务队列”的尾部添加事件，setImmediate是在事件循环结束后触发，也就是，它指定的任务总在下一次Event Loop时执行；多个setImmediate可能需要多次loop才能执行完。
+
+另外，由于process.nextTick指定的回调函数是在本次"事件循环"触发，而setImmediate指定的是在下次"事件循环"触发，所以很显然，前者总是比后者发生得早，而且执行效率也高（因为不用检查"任务队列"）。
+
+setTimeout(fn,0):它在“任务队列”的尾部添加一个事件；

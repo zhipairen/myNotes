@@ -1,0 +1,10 @@
+开源中国：https://my.oschina.net/mumu/blog/834254
+
+NiceFish源代码：http://git.oschina.net/mumu-osc/NiceFish
+
+用法：用git克隆本项目，从命令行进入进入项目根目录，依次执行以下命令：
+
+npm i -g cnpm
+cnpm i -g @angular/cli
+cnpm install
+ng serve

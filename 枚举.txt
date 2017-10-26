@@ -1,0 +1,364 @@
+    /// <summary>
+    /// 公司属性类型
+    /// </summary>
+    public enum CompanyPropertyType
+    {
+        /// <summary>
+        /// 未定义
+        /// </summary>
+        NoDefined = -1,
+        /// <summary>
+        /// 公司规模
+        /// </summary>      
+        Scope = 1,
+        /// <summary>
+        /// 公司行业
+        /// </summary>      
+        Industry = 2
+    } 
+
+    /// <summary>
+    /// 税务性质
+    /// </summary>
+    public enum TaxationType
+    {
+        /// <summary>
+        /// 未定义
+        /// </summary>
+        NoDefined = -1,
+        /// <summary>
+        /// 小规模纳税人
+        /// </summary>      
+        SmallScale = 1,
+        /// <summary>
+        /// 一般纳税人
+        /// </summary>      
+        General = 2
+    }
+
+    /// <summary>
+    /// 产品特性类型
+    /// </summary>
+    public enum ProductFeatureType
+    {
+        /// <summary>
+        /// 未定义
+        /// </summary>
+        NoDefined = -1,
+        /// <summary>
+        /// 服务期限
+        /// </summary>
+        ServiceLimit = 0
+    }
+    /// <summary>
+    /// 商品类型
+    /// </summary>
+    public enum GoodsType
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>
+        NoDefined = -1,
+        /// <summary>
+        /// 单个
+        /// </summary>
+        Single = 0,
+        /// <summary>
+        /// 套餐
+        /// </summary>
+        Package = 1,
+        /// <summary>
+        /// 单一
+        /// </summary>
+        Once = 2
+    }
+
+    /// <summary>
+    /// 用户属性类型
+    /// </summary>  
+    public enum UserPropertyType
+    {
+        /// <summary>
+        /// 技术职称
+        /// </summary>      
+        Professional = 1,
+        /// <summary>
+        /// 学历
+        /// </summary>      
+        Education = 2,
+        /// <summary>
+        /// 擅长领域
+        /// </summary>
+        Scopes = 3,
+        /// <summary>
+        /// 取消原因
+        /// </summary>
+        CancelReason = 4
+    }
+    /// <summary>
+    /// 用户类型
+    /// </summary>
+    public enum UserType
+    {
+        /// <summary>
+        /// B端用户
+        /// </summary>
+        B = 0,
+        /// <summary>
+        /// C端用户
+        /// </summary>
+        C = 1
+    }
+     public enum UserStatus
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>     
+        Initiated = -1,
+        /// <summary>
+        /// 注册成功
+        /// </summary>
+        Registered = 0,
+        /// <summary>
+        /// 证件审核通过
+        /// </summary>
+        Certificate = 1,
+        /// <summary>
+        /// 证件审核未通过
+        /// </summary>
+        NotCertificate = 2,
+        /// <summary>
+        /// 考试通过
+        /// </summary>
+        Exam = 3,
+        /// <summary>
+        /// 考试未通过
+        /// </summary>
+        NotExam = 4,
+        /// <summary>
+        /// 审批通过
+        /// </summary>
+        Audit = 5,
+        /// <summary>
+        /// 审批未通过
+        /// </summary>
+        NotAudit = 6
+    }
+    /// <summary>
+    /// 用户来源渠道
+    /// </summary>
+    public enum UserChannel
+    {
+        Wechat,
+        Android,
+        IOS
+    }
+    /// <summary>
+    /// 发票类型
+    /// </summary>
+    public enum InvoiceType
+    {
+        /// <summary>
+        /// 服务类
+        /// </summary>
+        Service = 0,
+        /// <summary>
+        /// 其他
+        /// </summary>
+        Other = 1  
+    }
+    /// <summary>
+    /// 发票状态
+    /// </summary>
+    public enum InvoiceStatus
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>     
+        Initiated = -1,
+        /// <summary>
+        /// 已配送
+        /// </summary>
+        Delivery = 1,
+        /// <summary>
+        /// 已作废
+        /// </summary>
+        Invalid = 2
+    }
+    /// <summary>
+    /// 订单日志类型
+    /// </summary>
+    public enum OrderLogType
+    {
+        /// <summary>
+        /// 取消订单
+        /// </summary>
+        CancelOrder = 1,
+        /// <summary>
+        /// 其他
+        /// </summary>
+        Other = 2
+    }
+
+    /// <summary>
+    /// 订单状态
+    /// </summary>
+    public enum OrderStatus
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>     
+        Initiated = -1,
+        /// <summary>
+        /// 交易完成
+        /// </summary>    
+        Committed = 0,
+        /// <summary>
+        /// 待确认
+        /// </summary>       
+        WaitingConfirm = 1,
+        /// <summary>
+        /// 抢单中
+        /// </summary>
+        Grabing = 2,
+        /// <summary>
+        /// 执行中
+        /// </summary>     
+        Executing = 3,
+        /// <summary>
+        /// 取消
+        /// </summary>      
+        Cancelled = 4
+    }
+    /// <summary>
+    /// 订单拆分状态
+    /// </summary>
+    public enum OrderSplitStatus
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>     
+        Initiated = -1,
+        /// <summary>
+        /// 服务中
+        /// </summary>
+        Service = 0,
+        /// <summary>
+        /// C端提交
+        /// </summary>
+        Submit = 1,
+        /// <summary>
+        /// B端待确认
+        /// </summary>       
+        WaitingConfirm = 2,
+        /// <summary>
+        /// C端完成
+        /// </summary>    
+        Committed = 3,
+        /// <summary>
+        /// 风控审核
+        /// </summary>
+        Auditing = 4,
+        /// <summary>
+        /// 已结算
+        /// </summary>
+        Settled = 5,
+        /// <summary>
+        /// 已收款
+        /// </summary>
+        Received = 6
+    }
+
+    /// <summary>
+    /// 抢单状态
+    /// </summary>
+    public enum GrabStatus
+    {
+        /// <summary>
+        /// 初始
+        /// </summary>     
+        Initiated = -1,
+        /// <summary>
+        /// 已抢
+        /// </summary>
+        Grabed = 0,
+        /// <summary>
+        /// 分配
+        /// </summary>
+        Assign = 1,
+
+    }
+
+    /// <summary>
+    /// 订单类型
+    /// </summary>
+    public enum OrderType
+    {
+        /// <summary>
+        /// 未定义
+        /// </summary>
+        Nodefined = -1,
+        /// <summary>
+        /// 交易
+        /// </summary>
+        Trade = 0,
+        /// <summary>
+        /// 交易明细
+        /// </summary>
+        Detail = 1,
+        /// <summary>
+        /// 支付
+        /// </summary>
+        Payment = 2,
+        /// <summary>
+        /// 提现
+        /// </summary>
+        Withdraw = 3,
+        /// <summary>
+        /// 收支
+        /// </summary>
+        Balance = 4
+    }
+
+
+    /// <summary>
+        /// 用户资金
+        /// </summary>
+        public decimal Assets { get; set; }
+        /// <summary>
+        /// 冻结资金
+        /// </summary>
+        public decimal Freeze { get; set; }
+        /// <summary>
+        /// 总资金
+        /// </summary>
+        [NotMapped]
+        public decimal TotalAmount
+        {
+            get { return Assets + Freeze; }
+        }
+
+
+
+	 /// <summary>
+    /// 提现状态
+    /// </summary>
+    public enum WithdrawStatus
+    {
+        /// <summary>
+        /// 提交
+        /// </summary>
+        Submit = 1,
+        /// <summary>
+        /// 审核
+        /// </summary>
+        Audit = 2,
+        /// <summary>
+        /// 打款
+        /// </summary>
+        PayMoney = 3,
+        /// <summary>
+        /// 驳回
+        /// </summary>
+        Return = 4
+    }

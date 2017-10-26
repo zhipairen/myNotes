@@ -1,0 +1,14 @@
+VueStrap:http://yuche.github.io/vue-strap/
+
+微信UI风格的移动端组件库Vux:https://vux.li/#/
+
+基于Vue2.0的组件库(Element UI): https://github.com/ElemeFE/element
+element UI文档： http://element.eleme.io/#/
+或iview
+ui components:awsome-vue :https://github.com/vuejs/awesome-vue
+ 或者  materializecss.com
+
+移动端 mint-ui:https://zhuanlan.zhihu.com/p/21802181
+       muser-UI:http://www.muse-ui.org/#/dialog(风格更好)s
+
+PC端优秀的Vue UI组件库：https://baijiahao.baidu.com/po/feed/share?wfr=spider&for=pc&context=%7B%22sourceFrom%22%3A%22bjh%22%2C%22nid%22%3A%22news_3409160306780089177%22%7D

@@ -1,0 +1,35 @@
+1、数据绑定 data-bind：形式
+2、ajax数据映射成observable类型值(ko的toJS,toJSON方法)，利用Mapping插件完成映射关系，
+ ko.mapping.fromJS(data, mapping, viewModel);
+unmap: ko.mapping.toJS(viewModel)转换为原来的js对象
+3、mapping高级用法：var mapping={‘数据’：{key:函数}}（判断一个对象是新还是旧对象）
+
+用create自定义对象的构造器 var mapping={'数据'：{create:function(options}{}}
+
+用update自定义对象的updating
+
+用ignore忽略不需要的map属性：var mapping={'ignore':[....]}
+
+用include声明需要map的属性
+
+用copy来复制属性
+
+4、map以后的observable数组有以下方法：mappedRemove,mappedRemoveAll,mappdeDestroy,mappedDestroyAll,mappedINdexOf,mappedCreate
+
+5、自定义检测属性(动画):
+ko.bindingHandlers.fadeVisible={
+init:function(element,valueAccessor){....}
+
+update:.....
+}
+6、计算属性：ko.computed({
+	read:function(){....},
+	write:function(value){},owner:this
+})
+peek函数可以在访问监控属性或计算属性时，无需创建依赖
+
+7、下拉列表：select常用的data-bind参数：options,optionsText,optionsVale,
+value,selectOptions
+
+8、列表foreach提供afterAdd及beforeRemove事件：
+self.afterAddEvent=function(element, index, data){if(element.nodeType==1){...}}

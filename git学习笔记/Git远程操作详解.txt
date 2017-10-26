@@ -1,0 +1,31 @@
+Git下载官网：https://git-scm.com/download/win
+
+远程操作：http://www.ruanyifeng.com/blog/2014/06/git_remote.html
+
+1、git clone 版本库网址 本地目录名  //从remote(远程)主机克隆一个版本库（repository）
+
+2、git remote //列出所有远程主机  -v / show / add / rm / rename 主机名
+
+3、git fetch 远程主机名 分支名 //将远程主机的版本库的更新取回本地
+
+4、git checkout //取回更新后或创建新分支
+
+5、git rebase或 git merge origin/分支  //在本地分支上合并远程分支
+
+6、git pull 远程主机名 远程分支名：本地分支名 （若远程分支与本地分支有追踪关系，可省略）
+
+//取回远程主机某个分支的更新再与本地指定分支合并；默认情况，若远程主机删除了某个分支，pull不会在拉取远程分支时，删除对应的本地分支；
+加上 参数 -p 可在本地删除远程已删除的分支
+
+7、git push 远程主机名 本地分支名：远程分支名 （注意存在追踪关系可省略）
+// 将本地分支的更新推送到远程主机
+git push --all origin 将本地所有分支都推送到远程主机
+
+工作流程：
+
+1、dev开发完成切换到alpha（自定义测试分支）分支
+2、把dev分支merge到alpha分支（把dev分支合并到测试分支）
+3、再在alpha用npm run deploy-test部署到alpha的线上环境（跑起来测试分支）
+4、测试完成以后再把alpha分支merge到master分支（合并到发布的分支）
+5、部署生产环境master分支代码（部署代码上线）
+

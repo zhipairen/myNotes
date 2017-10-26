@@ -1,0 +1,7 @@
+ng2以上官网：https://angular.cn/
+
+ng1.x文档：https://docs.angularjs.org/api/ng/type/angular.Module#component
+
+ng常见问题汇总（2.x~4.x):https://github.com/semlinker/angular-faq
+
+Rxjs中文文档:http://cn.rx.js.org/manual/overview.html

@@ -1,0 +1,34 @@
+
+""Vuejs群资料：http://t.cn/Rb1aUQT
+官网：http://cn.vuejs.org/guide/
+论坛：http://forum.vuejs.org/
+新版群规：http://t.cn/RUdaGHn
+
+官网：http://cn.vuejs.org/guide/
+论坛：http://forum.vuejs.org/
+新版群规：http://t.cn/RUdaGHn
+资料：http://note.youdao.com/share/?id=8d366cd8bf90791f566c2281e5c9a016&type=note
+资料
+Vuejs群赞助光荣榜：http://t.cn/R4WKjLJ
+Vuejs群资料：http://t.cn/Rb1aUQT
+
+小凡哥Vuejs视频
+http://i.youku.com/u/UMzQxOTE4MDE5Mg==
+讲解 vue.js 实例
+https://github.com/bhnddowinf/vuejs-learn
+视频github资源
+
+vue2.0相关文档
+http://vuefe.cn/ 中文文档
+http://vuejs.org/guide/ 官网原文文档
+http://router.vuejs.org/zh-cn/index.html vue-router2.0中文文档
+http://vuex.vuejs.org/en/index.html vuex2.0 英文文档
+https://github.com/bhnddowinf/vuejs2-learn v2学习项目
+
+
+
+Vue 2.x 实战之后台管理系统开发（一）https://juejin.im/entry/58f37b870ce463006bb44c19
+
+vue2-小凡 ：https://github.com/bhnddowinf/vuejs2-learn
+
+源码解析：http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/
